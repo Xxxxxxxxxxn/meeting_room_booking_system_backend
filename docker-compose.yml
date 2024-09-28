@@ -17,7 +17,7 @@ services:
       - /Users/cn/mysql-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: meeting_room_booking_system
-      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_ROOT_PASSWORD: root123456
     networks:
       - common-network
   redis-container:
