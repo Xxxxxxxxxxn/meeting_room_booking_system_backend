@@ -13,7 +13,7 @@ import { Booking } from './booking/entities/booking.entity';
 import { RedisModule } from './redis/redis.module';
 import { EmailModule } from './email/email.module';
 import { APP_GUARD } from '@nestjs/core';
-import path from 'path';
+import * as path from 'path';
 import { LoginGuard } from './common/login.guard';
 import { PermissionGuard } from './common/permission.guard';
 import { MettingRoomModule } from './meeting-room/meeting-room.module';

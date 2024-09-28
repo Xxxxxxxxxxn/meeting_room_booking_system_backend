@@ -14,16 +14,16 @@ services:
   mysql-container:
     image: mysql
     volumes:
-      - /Users/guang/mysql-data:/var/lib/mysql
+      - /Users/cn/mysql-data:/var/lib/mysql
     environment:
       MYSQL_DATABASE: meeting_room_booking_system
-      MYSQL_ROOT_PASSWORD: guang
+      MYSQL_ROOT_PASSWORD: 123456
     networks:
       - common-network
   redis-container:
     image: redis
     volumes:
-      - /Users/guang/redis-data:/data
+      - /Users/cn/redis-data:/data
     networks:
       - common-network
 networks:
