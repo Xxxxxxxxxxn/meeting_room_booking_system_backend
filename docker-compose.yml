@@ -1,5 +1,13 @@
 version: '3.8'
 services:
+  fe-app:
+    image: registry.cn-hangzhou.aliyuncs.com/cnblur/blue:a
+    ports:
+      - 80:80
+    depends_on:
+      - nest-app
+    networks:
+      - common-network
   nest-app:
     build:
       context: ./
@@ -7,14 +15,12 @@ services:
     depends_on:
       - mysql-container
       - redis-container
-    ports:
-      - 3005:3005
     networks:
       - common-network
   mysql-container:
     image: mysql
     volumes:
-      - /Users/cn/myssql-nest:/var/lib/mysql
+         - /Users/cn/myssql-nest:/var/lib/mysql
     environment:
       MYSQL_DATABASE: meeting_room_booking_system
       MYSQL_ROOT_PASSWORD: 123456
