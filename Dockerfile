@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package.json .
 
+
+
 RUN npm config set registry https://registry.npmmirror.com/
 
 RUN npm install
@@ -27,3 +29,7 @@ RUN npm install --production
 EXPOSE 3005
 
 CMD ["node", "/app/main.js"]
+
+
+# 解决一下mysql 说拒绝访问的问题
+# 开始部署
