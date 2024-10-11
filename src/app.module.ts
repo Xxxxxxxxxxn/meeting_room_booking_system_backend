@@ -19,6 +19,7 @@ import { PermissionGuard } from './common/permission.guard';
 import { MettingRoomModule } from './meeting-room/meeting-room.module';
 import { BookingModule } from './booking/booking.module';
 import { StatisticModule } from './statistic/statistic.module';
+import { MinioModule } from './minio/minio.module';
 
 @Module({
   imports: [
@@ -69,6 +70,7 @@ import { StatisticModule } from './statistic/statistic.module';
     MettingRoomModule,
     BookingModule,
     StatisticModule,
+    MinioModule,
   ],
   controllers: [AppController],
   providers: [
