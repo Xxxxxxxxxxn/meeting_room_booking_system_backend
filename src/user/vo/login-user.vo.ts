@@ -15,7 +15,7 @@ interface UserInfo {
 
   isAdmin: boolean;
 
-  createTime: Date;
+  createTime: Date | number;
 
   roles: string[];
 

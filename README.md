@@ -77,4 +77,5 @@ Nest is [MIT licensed](LICENSE).
 催办前端没入口
 
 
-服务器拉不到阿里云的镜像 比较奇怪 试一下本地能不能拉到
+看下google登录部分 报错
+InternalOAuthError: Failed to obtain access token

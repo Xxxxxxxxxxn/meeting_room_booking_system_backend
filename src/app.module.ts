@@ -20,6 +20,7 @@ import { MettingRoomModule } from './meeting-room/meeting-room.module';
 import { BookingModule } from './booking/booking.module';
 import { StatisticModule } from './statistic/statistic.module';
 import { MinioModule } from './minio/minio.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -39,7 +40,10 @@ import { MinioModule } from './minio/minio.module';
     // 配置
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: path.join(__dirname, '.env'),
+      envFilePath: [
+        path.join(__dirname, '.env'),
+        path.join(__dirname, '.dev.env'),
+      ],
     }),
     // 数据库
     TypeOrmModule.forRootAsync({
@@ -71,6 +75,7 @@ import { MinioModule } from './minio/minio.module';
     BookingModule,
     StatisticModule,
     MinioModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [

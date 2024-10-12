@@ -14,8 +14,11 @@ import {
   ParseIntPipe,
   Post,
   Query,
+  Req,
+  Res,
   UnauthorizedException,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
@@ -34,7 +37,9 @@ import { generateParseIntPipe } from 'src/common/utils';
 import { FileInterceptor } from '@nestjs/platform-express';
 import * as path from 'path';
 import { storage } from 'src/my-file-storage';
-
+import { AuthGuard } from '@nestjs/passport';
+import { LoginUserVo } from './vo/login-user.vo';
+import { Response } from 'express';
 @Controller('user')
 export class UserController {
   @Inject()
@@ -49,10 +54,14 @@ export class UserController {
   @Inject(ConfigService)
   private configService: ConfigService;
 
+  @Get('init-data')
+  async initData() {
+    await this.userService.initData();
+    return 'done';
+  }
+
   @Post('register')
   async register(@Body() registerUser: RegisterUserDto) {
-    //
-
     return await this.userService.register(registerUser);
   }
 
@@ -137,15 +146,131 @@ export class UserController {
     return file.path;
   }
 
-  @Get('init-data')
-  async initData() {
-    await this.userService.initData();
-    return 'done';
+  @Get('google')
+  @UseGuards(AuthGuard('google'))
+  async google() {}
+
+  @Get('callback/google')
+  @UseGuards(AuthGuard('google'))
+  async googleCallback(@Req() req, @Res() res: Response) {
+    if (!req.user) {
+      throw new BadRequestException('google 登录失败');
+    }
+
+    const foundUser = await this.userService.findUserByEmail(req.user.email);
+
+    if (foundUser) {
+      const vo = new LoginUserVo();
+      vo.userInfo = {
+        id: foundUser.id,
+        username: foundUser.username,
+        nickName: foundUser.nickName,
+        email: foundUser.email,
+        phoneNumber: foundUser.phoneNumber,
+        headPic: foundUser.headPic,
+        createTime: foundUser.createTime.getTime(),
+        isFrozen: foundUser.isFrozen,
+        isAdmin: foundUser.isAdmin,
+        roles: foundUser.roles.map((item) => item.name),
+        permissions: foundUser.roles.reduce((arr, item) => {
+          item.permissions.forEach((permission) => {
+            if (arr.indexOf(permission) === -1) {
+              arr.push(permission);
+            }
+          });
+          return arr;
+        }, []),
+      };
+      vo.accessToken = this.jwtService.sign(
+        {
+          userId: vo.userInfo.id,
+          username: vo.userInfo.username,
+          email: vo.userInfo.email,
+          roles: vo.userInfo.roles,
+          permissions: vo.userInfo.permissions,
+        },
+        {
+          expiresIn:
+            this.configService.get('jwt_access_token_expires_time') || '30m',
+        },
+      );
+
+      vo.refreshToken = this.jwtService.sign(
+        {
+          userId: vo.userInfo.id,
+        },
+        {
+          expiresIn:
+            this.configService.get('jwt_refresh_token_expres_time') || '7d',
+        },
+      );
+
+      // return vo;
+
+      res.cookie('userInfo', JSON.stringify(vo.userInfo));
+      res.cookie('accessToken', vo.accessToken);
+      res.cookie('refreshToken', vo.refreshToken);
+      res.redirect('http://localhost:3000/');
+      return;
+    }
+
+    const user = await this.userService.registerByGoogleInfo(
+      req.user.email,
+      req.user.firstName + ' ' + req.user.lastName,
+      req.user.picture,
+    );
+
+    const vo = new LoginUserVo();
+    vo.userInfo = {
+      id: user.id,
+      username: user.username,
+      nickName: user.nickName,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      headPic: user.headPic,
+      createTime: user.createTime.getTime(),
+      isFrozen: user.isFrozen,
+      isAdmin: user.isAdmin,
+      roles: [],
+      permissions: [],
+    };
+
+    vo.accessToken = this.jwtService.sign(
+      {
+        userId: vo.userInfo.id,
+        username: vo.userInfo.username,
+        email: vo.userInfo.email,
+        roles: vo.userInfo.roles,
+        permissions: vo.userInfo.permissions,
+      },
+      {
+        expiresIn:
+          this.configService.get('jwt_access_token_expires_time') || '30m',
+      },
+    );
+
+    vo.refreshToken = this.jwtService.sign(
+      {
+        userId: vo.userInfo.id,
+      },
+      {
+        expiresIn:
+          this.configService.get('jwt_refresh_token_expres_time') || '7d',
+      },
+    );
+
+    res.cookie('userInfo', JSON.stringify(vo.userInfo));
+    res.cookie('accessToken', vo.accessToken);
+    res.cookie('refreshToken', vo.refreshToken);
+    res.redirect('http://localhost:3000/');
+    // return vo;
   }
 
+  @UseGuards(AuthGuard('local'))
+  @UseGuards(AuthGuard('google'))
   @Post('login')
-  async userLogin(@Body() loginUser: LoginUserDto) {
-    const vo = await this.userService.login(loginUser, false);
+  async userLogin(@UserInfo() vo: LoginUserVo) {
+    // const vo = await this.userService.login(loginUser, false);
 
     // 设置jwt签名
     vo.accessToken = this.jwtService.sign(
@@ -279,7 +404,9 @@ export class UserController {
   @Post(['update_password', 'admin/update_password'])
   @RequireLogin()
   async updatePassword(@Body() passwordDto: UpdateUserPasswordDto) {
-    return await this.userService.updatePassword(passwordDto);
+    const res = await this.userService.updatePassword(passwordDto);
+    this.redisService.del(`captcha_${passwordDto.email}`);
+    return res;
   }
 
   @Post(['update', 'admin/update'])
@@ -288,7 +415,10 @@ export class UserController {
     @UserInfo('userId') userId: number,
     @Body() updateUserDto: UpdateUserDto,
   ) {
-    return await this.userService.update(userId, updateUserDto);
+    const res = await this.userService.update(userId, updateUserDto);
+    this.redisService.del(`captcha_${updateUserDto.email}`);
+
+    return res;
   }
 
   @Get('frozen')

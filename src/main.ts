@@ -7,7 +7,7 @@ import { FormatResponseInterceptor } from './common/format-response.interceptor'
 import { InvokeRecordInterceptor } from './common/invoke-record.interceptor';
 import { CustomExceptionFilter } from './common/custom.filter';
 import { NestExpressApplication } from '@nestjs/platform-express';
-
+import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
@@ -24,6 +24,9 @@ async function bootstrap() {
   app.useGlobalFilters(new CustomExceptionFilter());
 
   app.enableCors();
+
+  app.use(cookieParser());
+
   // 创建swagger
   const config = new DocumentBuilder()
     .setTitle('会议室系统')

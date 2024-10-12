@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Like, Repository } from 'typeorm';
-import { User } from './entities/user.entity';
+import { LoginType, User } from './entities/user.entity';
 import {
   RegisterUserDto,
   UpdateUserDto,
@@ -69,6 +69,20 @@ export class UserService {
     }
   }
 
+  async registerByGoogleInfo(email: string, nickName: string, headPic: string) {
+    const newUser = new User();
+
+    newUser.email = email;
+    newUser.nickName = nickName;
+    newUser.headPic = headPic;
+    newUser.password = '';
+    newUser.username = email + Math.random().toString().slice(2, 10);
+    newUser.loginType = LoginType.GOOGLE;
+    newUser.isAdmin = false;
+
+    return this.userRepository.save(newUser);
+  }
+
   async initData() {
     const user1 = new User();
     user1.username = 'zhangsan';
@@ -113,9 +127,10 @@ export class UserService {
     const user = await this.userRepository.findOne({
       where: {
         username: LoginInfo.username,
+        loginType: LoginType.USERNAME_PASSWORD,
         isAdmin: isAdmin,
       },
-      // 这里为什么要联表查询
+      // 查其他内容是需要relation typerom不会自动查询关联的表
       relations: ['roles', 'roles.permissions'],
     });
     if (!user) {
@@ -185,6 +200,13 @@ export class UserService {
     });
 
     return user;
+  }
+
+  async findUserByEmail(email: string) {
+    return await this.userRepository.findOne({
+      where: { email, isAdmin: false },
+      relations: ['roles', 'roles.permissions'],
+    });
   }
 
   async updatePassword(passwordDto: UpdateUserPasswordDto) {
