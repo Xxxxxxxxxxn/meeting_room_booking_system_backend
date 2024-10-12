@@ -1,14 +1,19 @@
 {
-  "name": "Launch via NPM",
-  "request": "launch",
-  "runtimeArgs": [
-      "run-script",
-      "start:dev"
-  ],
-  "console": "integratedTerminal",
-  "runtimeExecutable": "npm",
-  "skipFiles": [
-      "<node_internals>/**"
-  ],
-  "type": "node"
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      // 调试方式改为附加
+      "request": "attach",
+      "name": "Attach Nest",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      // 启动调试器之前运行任务进行编译TS项目
+      "preLaunchTask": "npm: dev:debug",
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js"
+      ]
+    }
+  ]
 }
