@@ -44,8 +44,8 @@ import { CustomTypeOrmLogger } from './CustomTypeOrmLogger';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: [
-        path.join(__dirname, '.dev.env'),
         path.join(__dirname, '.env'),
+        path.join(__dirname, '.dev.env'),
       ],
     }),
     // 数据库

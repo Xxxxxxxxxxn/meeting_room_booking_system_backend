@@ -79,3 +79,8 @@ Nest is [MIT licensed](LICENSE).
 
 看下google登录部分 报错
 InternalOAuthError: Failed to obtain access token
+=>需要设置本机代理
+
+部署前端项目。改日期的bug，发布admin镜像到阿里云，docker compose泡一下。然后
+那个env咋办 手动传到服务器
+
