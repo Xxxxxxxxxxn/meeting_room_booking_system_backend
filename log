@@ -1,0 +1,220 @@
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/aaa, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/bbb, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/init-data, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register-captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/upload, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/callback/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/info, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/frozen, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/list, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"EmailController {/email}:"}
+{"context":"RoutesResolver","level":"info","message":"MettingRoomController {/meeting-room}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/create, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/update, PUT} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, DELETE} route"}
+{"context":"RoutesResolver","level":"info","message":"BookingController {/booking}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/add, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/apply/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/reject/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/unbind/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/urge/:id, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StatisticController {/statistic}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/userBookingCount, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/meetingRoomUsedCount, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"MinioController {/minio}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/minio/presignedUrl, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/aaa, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/bbb, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/init-data, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register-captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/upload, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/callback/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/info, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/frozen, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/list, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"EmailController {/email}:"}
+{"context":"RoutesResolver","level":"info","message":"MettingRoomController {/meeting-room}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/create, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/update, PUT} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, DELETE} route"}
+{"context":"RoutesResolver","level":"info","message":"BookingController {/booking}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/add, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/apply/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/reject/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/unbind/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/urge/:id, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StatisticController {/statistic}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/userBookingCount, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/meetingRoomUsedCount, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"MinioController {/minio}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/minio/presignedUrl, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/aaa, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/bbb, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/init-data, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register-captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/upload, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/callback/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/info, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/frozen, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/list, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"EmailController {/email}:"}
+{"context":"RoutesResolver","level":"info","message":"MettingRoomController {/meeting-room}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/create, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/update, PUT} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, DELETE} route"}
+{"context":"RoutesResolver","level":"info","message":"BookingController {/booking}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/add, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/apply/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/reject/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/unbind/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/urge/:id, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StatisticController {/statistic}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/userBookingCount, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/meetingRoomUsedCount, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"MinioController {/minio}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/minio/presignedUrl, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/aaa, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/bbb, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/init-data, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register-captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/upload, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/callback/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/info, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/frozen, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/list, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"EmailController {/email}:"}
+{"context":"RoutesResolver","level":"info","message":"MettingRoomController {/meeting-room}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/create, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/update, PUT} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, DELETE} route"}
+{"context":"RoutesResolver","level":"info","message":"BookingController {/booking}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/add, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/apply/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/reject/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/unbind/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/urge/:id, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StatisticController {/statistic}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/userBookingCount, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/meetingRoomUsedCount, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"MinioController {/minio}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/minio/presignedUrl, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}
+{"context":"RoutesResolver","level":"info","message":"AppController {/}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/aaa, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/bbb, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"UserController {/user}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/init-data, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/register-captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update/captcha, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/upload, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/callback/google, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/login, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/refresh, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/info, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update_password, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/admin/update, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/frozen, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/user/list, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"EmailController {/email}:"}
+{"context":"RoutesResolver","level":"info","message":"MettingRoomController {/meeting-room}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/create, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/update, PUT} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/meeting-room/:id, DELETE} route"}
+{"context":"RoutesResolver","level":"info","message":"BookingController {/booking}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/list, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/add, POST} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/apply/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/reject/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/unbind/:id, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/booking/urge/:id, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"StatisticController {/statistic}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/userBookingCount, GET} route"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/statistic/meetingRoomUsedCount, GET} route"}
+{"context":"RoutesResolver","level":"info","message":"MinioController {/minio}:"}
+{"context":"RouterExplorer","level":"info","message":"Mapped {/minio/presignedUrl, GET} route"}
+{"context":"NestApplication","level":"info","message":"Nest application successfully started"}

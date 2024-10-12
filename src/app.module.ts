@@ -21,7 +21,10 @@ import { BookingModule } from './booking/booking.module';
 import { StatisticModule } from './statistic/statistic.module';
 import { MinioModule } from './minio/minio.module';
 import { AuthModule } from './auth/auth.module';
-
+import { WinstonLogger, WinstonModule, utilities } from 'nest-winston';
+import * as winston from 'winston';
+import 'winston-daily-rotate-file';
+import { CustomTypeOrmLogger } from './CustomTypeOrmLogger';
 @Module({
   imports: [
     // jwt
@@ -41,13 +44,13 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: [
-        path.join(__dirname, '.env'),
         path.join(__dirname, '.dev.env'),
+        path.join(__dirname, '.env'),
       ],
     }),
     // 数据库
     TypeOrmModule.forRootAsync({
-      useFactory(configService: ConfigService) {
+      useFactory(configService: ConfigService, logger: WinstonLogger) {
         console.log('configService: ', configService);
         return {
           type: 'mysql',
@@ -58,6 +61,8 @@ import { AuthModule } from './auth/auth.module';
           database: configService.get('mysql_server_database'),
           synchronize: true,
           logging: true,
+          // 这个咋有问题啊 说logger上没log方法
+          // logger: new CustomTypeOrmLogger(logger),
           entities: [User, Role, Permission, MeetingRoom, Booking],
           poolSize: 10,
           connectorPackage: 'mysql2',
@@ -68,6 +73,38 @@ import { AuthModule } from './auth/auth.module';
       },
       inject: [ConfigService],
     }),
+    WinstonModule.forRootAsync({
+      useFactory: (configService: ConfigService) => ({
+        level: 'debug',
+        transports: [
+          // new winston.transports.File({
+          //   filename: `${process.cwd()}/log`,
+          // }),
+          // 按日期分割
+          new winston.transports.DailyRotateFile({
+            level: configService.get('winston_log_level'),
+            dirname: configService.get('winston_log_dirname'),
+            filename: configService.get('winston_log_filename'),
+            datePattern: configService.get('winston_log_date_pattern'),
+            maxSize: configService.get('winston_log_max_size'),
+          }),
+          new winston.transports.Console({
+            format: winston.format.combine(
+              winston.format.timestamp(),
+              utilities.format.nestLike(),
+            ),
+          }),
+          // 新起一个服务接受日志
+          new winston.transports.Http({
+            host: 'localhost',
+            port: 3002,
+            path: '/log',
+          }),
+        ],
+      }),
+      inject: [ConfigService],
+    }),
+
     UserModule,
     RedisModule,
     EmailModule,
