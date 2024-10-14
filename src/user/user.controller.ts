@@ -267,7 +267,6 @@ export class UserController {
   }
 
   @UseGuards(AuthGuard('local'))
-  @UseGuards(AuthGuard('google'))
   @Post('login')
   async userLogin(@UserInfo() vo: LoginUserVo) {
     // const vo = await this.userService.login(loginUser, false);
