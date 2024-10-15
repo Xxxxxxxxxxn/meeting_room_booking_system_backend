@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   fe--admin-app:
-    image: crpi-5yp7tlnljsjufyzm.cn-hangzhou.personal.cr.aliyuncs.com/cnblur/blue:a
+    image: crpi-5yp7tlnljsjufyzm.cn-hangzhou.personal.cr.aliyuncs.com/cnblur/admin:b
     ports:
       - 80:80
     depends_on:
@@ -9,7 +9,7 @@ services:
     networks:
       - common-network
   fe-user-app:
-    image: crpi-5yp7tlnljsjufyzm.cn-hangzhou.personal.cr.aliyuncs.com/cnblur/user:a
+    image: crpi-5yp7tlnljsjufyzm.cn-hangzhou.personal.cr.aliyuncs.com/cnblur/user:c
     ports:
       - 81:81
     depends_on:

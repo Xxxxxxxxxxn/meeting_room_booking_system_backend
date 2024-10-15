@@ -84,3 +84,6 @@ InternalOAuthError: Failed to obtain access token
 部署前端项目。改日期的bug,为啥，发布admin镜像到阿里云，docker compose泡一下。然后
 那个env咋办 手动传到服务器
 google的callback地址得换
+
+SCP传文件报错， Permission denied (publickey,gssapi-keyex,gssapi-with-mic).lost connection 后面看下咋搞
+
