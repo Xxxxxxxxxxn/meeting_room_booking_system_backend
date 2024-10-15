@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   fe--admin-app:
-    image: crpi-5yp7tlnljsjufyzm.cn-hangzhou.personal.cr.aliyuncs.com/cnblur/admin:b
+    image: crpi-5yp7tlnljsjufyzm.cn-hangzhou.personal.cr.aliyuncs.com/cnblur/admin:a
     ports:
       - 80:80
     depends_on:
