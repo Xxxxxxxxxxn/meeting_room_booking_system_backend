@@ -89,3 +89,6 @@ SCP传文件报错， Permission denied (publickey,gssapi-keyex,gssapi-with-mic)
 
 有bug 管理端一点头像就退出去了
 发送邮件还是开发期字样，而且没有过期时间
+
+用户端预定历史的查询太呆瓜了
+缺少退出功能
