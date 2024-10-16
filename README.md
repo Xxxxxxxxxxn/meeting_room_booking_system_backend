@@ -87,3 +87,5 @@ google的callback地址得换
 
 SCP传文件报错， Permission denied (publickey,gssapi-keyex,gssapi-with-mic).lost connection 后面看下咋搞
 
+有bug 管理端一点头像就退出去了
+发送邮件还是开发期字样，而且没有过期时间

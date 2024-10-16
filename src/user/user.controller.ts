@@ -73,13 +73,12 @@ export class UserController {
       'captcha_' + address,
       code,
       // 不做限制了 麻烦
-      //  expireTime
+      expireTime,
     );
     await this.emailService.sendEmail({
       to: address,
       subject: '注册验证码',
-      // html: `<p>验证码为: ${code}，5分钟内有效</p>`,
-      html: `<p>验证码为: ${code}，开发期永久有效</p>`,
+      html: `<p>验证码为: ${code}，5分钟内有效</p>`,
     });
     return '发送成功';
   }
