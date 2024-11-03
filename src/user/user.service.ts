@@ -131,60 +131,36 @@ export class UserService {
     await this.userRepository.save([user1, user2]);
   }
 
-  async login(LoginInfo: LoginUserDto, isAdmin?: boolean) {
+  async login(loginUserDto: LoginUserDto, isAdmin: boolean) {
     const user = await this.userRepository.findOne({
       where: {
-        username: LoginInfo.username,
+        username: loginUserDto.username,
         loginType: LoginType.USERNAME_PASSWORD,
-        isAdmin: isAdmin,
+        isAdmin,
       },
-      // 查其他内容是需要relation typerom不会自动查询关联的表
       relations: ['roles', 'roles.permissions'],
     });
+
     if (!user) {
       throw new HttpException('用户不存在', HttpStatus.BAD_REQUEST);
     }
-    if (md5(LoginInfo.password) !== user.password) {
-      throw new HttpException('密码不正确', HttpStatus.BAD_REQUEST);
+
+    if (user.password !== md5(loginUserDto.password)) {
+      throw new HttpException('密码错误', HttpStatus.BAD_REQUEST);
     }
+
     const vo = new LoginUserVo();
-
-    // 设置jwt签名
-    vo.accessToken = this.jwtService.sign(
-      {
-        userId: vo.userInfo.id,
-        username: vo.userInfo.username,
-        email: vo.userInfo.email,
-        isAdmin: vo.userInfo.isAdmin,
-        roles: vo.userInfo.roles,
-        permissions: vo.userInfo.permissions,
-      },
-      {
-        expiresIn:
-          this.configService.get('jwt_access_token_expires_time') || '30m',
-      },
-    );
-    vo.refreshToken = this.jwtService.sign(
-      {
-        userId: vo.userInfo.id,
-      },
-      {
-        expiresIn:
-          this.configService.get('jwt_refresh_token_expres_time') || '7d',
-      },
-    );
-
     vo.userInfo = {
       id: user.id,
       username: user.username,
       nickName: user.nickName,
       email: user.email,
-      headPic: user.headPic,
       phoneNumber: user.phoneNumber,
+      headPic: user.headPic,
+      createTime: user.createTime.getTime(),
       isFrozen: user.isFrozen,
       isAdmin: user.isAdmin,
-      createTime: user.createTime,
-      roles: user.roles.map((role) => role.name),
+      roles: user.roles.map((item) => item.name),
       permissions: user.roles.reduce((arr, item) => {
         item.permissions.forEach((permission) => {
           if (arr.indexOf(permission) === -1) {
@@ -194,10 +170,8 @@ export class UserService {
         return arr;
       }, []),
     };
-
     return vo;
   }
-
   async findUserById(userId: number, isAdmin: boolean) {
     const user = await this.userRepository.findOne({
       where: {
